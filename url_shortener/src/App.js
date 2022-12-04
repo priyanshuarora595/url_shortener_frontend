@@ -20,7 +20,7 @@ import { BrowserRouter as Router , Routes , Route } from 'react-router-dom';
 
 function App() {
 
-  const[loggedIn,setLoggedIn] = useState(false);
+  const[loggedIn,setLoggedIn] = useState();
 
   
 
@@ -29,7 +29,7 @@ function App() {
     return userData;
   }
 
-  useEffect((signupLogin,loggedIn,logout)=>{
+  useEffect(()=>{
     const userData = loadLocalStorage();
     
     if(userData){
@@ -38,12 +38,20 @@ function App() {
     }else{
       setLoggedIn(false);
     }
+  
     },[loggedIn])
 
 
 
     // console.log(window.location.pathname);
 
+
+  if(String(window.location.pathname)==="/" || String(window.location.pathname)==="")
+  {
+    if(loggedIn){
+      window.location.pathname="/user"
+    }
+  }
   if(String(window.location.pathname)==="/user")
   {
 
@@ -76,7 +84,7 @@ function App() {
         <Route path="/signup" element={<SignUpForm />} />
         <Route path="/login" element={<Login />} />
         <Route path="/user" element={<UserDashboard />} />
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Login />}/>
       </Routes>
       
     <Footer />

@@ -21,9 +21,12 @@ export const AddUrl =  () => {
     
 
     const add_url = async() => {
+        let userData = localStorage.getItem("userData");
+        userData = JSON.parse(userData);
         const new_url_obj = {
             "url_string":urlString,
-            "redirection_url":redirectionUrl
+            "redirection_url":redirectionUrl,
+            "owner_user" : String(userData._id)
         }
         var result = await fetch("http://localhost:8080/url/",{
             method:"POST",
@@ -40,6 +43,8 @@ export const AddUrl =  () => {
             
             seturlStringError(true)
             setError(result.message)
+            seturlString("");
+            document.getElementById("URLString").value="";
 
         }
         else{
@@ -47,13 +52,13 @@ export const AddUrl =  () => {
             setError("");
             setredirectionUrl("");
             seturlString("");
-            window.location.pathname="";
+            window.location.pathname='/user'
         }
 
     }
 
     return(
-        <div className='container'>
+        <>
             <h2 style={{color:"red"}}>{error}</h2>
             <form>
                 <div className='row' >
@@ -84,7 +89,8 @@ export const AddUrl =  () => {
                
                 </div>
                 </form>
-        </div>
+    </>
+        
     )
 
 } 

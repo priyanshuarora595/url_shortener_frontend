@@ -1,7 +1,7 @@
 import React from "react";
 import "./signup.css";
 import { useState , useEffect  } from "react";
-import {useNavigate} from 'react-router-dom';
+// import { useNavigate} from 'react-router-dom';
 
 const SignUpForm = () => {
     const [fname,setFname] = useState("");
@@ -18,7 +18,7 @@ const SignUpForm = () => {
 },[error])
 
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const SignupUser = async (event) =>{
         // event.preventDefault();
@@ -56,7 +56,7 @@ const SignUpForm = () => {
             setFname("");
             setLname("");
             setPassword("");
-            navigate("/");
+            window.location.pathname="/user";
           }
 
     }
@@ -75,7 +75,7 @@ const SignUpForm = () => {
                 Vitae auctor eu augudsf ut. Malesuada nunc vel risus commodo viverra. Praesent elementum facilisis leo vel.
             </p>
             <div className="form-field">
-                <input type="submit" className="account" value="Have an Account?" />
+                <input type="button" className="account" value="Have an Account? Login" onClick={()=>{window.location.pathname="/login"}} />
             </div>
         </div>
         <form className="form-right">

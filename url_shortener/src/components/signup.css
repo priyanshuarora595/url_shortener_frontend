@@ -62,7 +62,7 @@ body{
     background: #fff;
     border-top-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    width: 180px;
+    width: fit-content;
     border: none;
     margin: 15px 0 50px 0px;
     cursor: pointer;
