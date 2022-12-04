@@ -1,12 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+// import { redirect } from "react-router-dom";
 
 export const Header = (props) => {
+
+  // const navigate = useNavigate();
   const[loggedIn,setLoggedIn] = useState(false);
 
   const loadLocalStorage = () =>{
     let userData = localStorage.getItem("userData")
     return userData;
+  }
+
+  const logoutFunction = () => {
+    localStorage.clear();
+    console.log("clearing data");
+    // return redirect("/logout");
+    window.location.pathname='';
+
   }
   
 
@@ -20,12 +31,12 @@ export const Header = (props) => {
 
   // const logout = (<><li className="nav-item"><Link to="/signup" className="nav-link">Signup</Link> </>);
   const logout = (<> <li className="nav-item">
-  <Link to="/logout" className="nav-link">Logout</Link>
+  <Link to="/" className="nav-link" onClick={logoutFunction}>Logout</Link>
   </li>
   </>);
 
 
-useEffect((signupLogin,loggedIn,logout)=>{
+useEffect(()=>{
   const userData = loadLocalStorage();
   
   if(userData){
