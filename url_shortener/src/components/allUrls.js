@@ -12,7 +12,8 @@ export const AllUrls = () => {
             method : "GET",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'authorization' : (localStorage.getItem("token") || "")
               },
         });
         result = await result.json();
@@ -29,7 +30,8 @@ export const AllUrls = () => {
             method : "POST",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'authorization' : (localStorage.getItem("token") || "")
               },
             body : JSON.stringify({
                 "uid" : String(userData._id)
@@ -60,7 +62,8 @@ export const AllUrls = () => {
                 method:"POST",
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'authorization' : (localStorage.getItem("token") || "")
                   },
                 body:JSON.stringify(url_obj)
             });

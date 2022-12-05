@@ -42,7 +42,7 @@ const SignUpForm = () => {
         });
 
         result = await result.json()
-        console.log(result);
+        // console.log(result);
 
         if(result.status===400){
             setError(result.message); 
@@ -50,7 +50,7 @@ const SignUpForm = () => {
   
           else if(result.status===200 && result.extra.token){
             localStorage.setItem("userData",JSON.stringify(result.data));
-            localStorage.setItem("token",JSON.stringify(result.extra.token));
+            localStorage.setItem("token","Bearer "+result.extra.token);
             setEmail("");
             setPassword("");
             setFname("");

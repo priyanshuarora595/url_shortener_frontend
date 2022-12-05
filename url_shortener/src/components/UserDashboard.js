@@ -32,9 +32,9 @@ export const UserDashboard = () => {
         {loadLocalStorage() &&
         <>
         <div className='container'>
-        <h1>{user.username}</h1>
-        <AddUrl />
-            < AllUrls />
+          <h1>{user.username}</h1>
+          <AddUrl />
+          < AllUrls />
         </div>
         </>
         }
