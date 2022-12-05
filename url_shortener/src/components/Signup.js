@@ -44,7 +44,7 @@ const SignUpForm = () => {
         result = await result.json()
         // console.log(result);
 
-        if(result.status===400){
+        if(result.status!==200){
             setError(result.message); 
           }
   
