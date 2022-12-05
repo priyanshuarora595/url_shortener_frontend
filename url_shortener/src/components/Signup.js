@@ -31,7 +31,7 @@ const SignUpForm = () => {
             "username" : username
         }
 
-        var result = await fetch("http://localhost:8080/auth/signup/",
+        var result = await fetch(`${process.env.REACT_APP_BACKEND_URL}/auth/signup/`,
         {
             body : JSON.stringify(userObj),
             method : "POST",

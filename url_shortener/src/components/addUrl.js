@@ -28,7 +28,7 @@ export const AddUrl =  () => {
             "redirection_url":redirectionUrl,
             "owner_user" : String(userData._id)
         }
-        var result = await fetch("http://localhost:8080/url/",{
+        var result = await fetch(`${process.env.REACT_APP_BACKEND_URL}/url/`,{
             method:"POST",
             headers: {
                 'Accept': 'application/json',

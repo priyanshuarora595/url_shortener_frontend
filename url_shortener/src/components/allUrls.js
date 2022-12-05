@@ -7,7 +7,7 @@ export const AllUrls = () => {
     const [data ,setdata] = useState([]);
     const [error ,setError] = useState([]);
     const get_all_urls = async() => {
-        var result = await fetch("http://localhost:8080/url/",
+        var result = await fetch(`${process.env.REACT_APP_BACKEND_URL}/url/`,
         {
             method : "GET",
             headers: {
@@ -25,7 +25,7 @@ export const AllUrls = () => {
         let userData = localStorage.getItem("userData");
         userData = JSON.parse(userData);
         console.log(userData._id);
-        var result = await fetch("http://localhost:8080/url/userUrl/",
+        var result = await fetch(`${process.env.REACT_APP_BACKEND_URL}/url/userUrl/`,
         {
             method : "POST",
             headers: {
@@ -58,7 +58,7 @@ export const AllUrls = () => {
 
       const deleteUrl = async (url_obj) => {
             console.log(url_obj);
-            var result = await fetch("http://localhost:8080/url/deleteUrl/",{
+            var result = await fetch(`${process.env.REACT_APP_BACKEND_URL}/url/deleteUrl/`,{
                 method:"POST",
                 headers: {
                     'Accept': 'application/json',

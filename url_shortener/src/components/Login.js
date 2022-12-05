@@ -2,6 +2,7 @@ import React , {useEffect, useState} from 'react';
 // import {useNavigate} from 'react-router-dom';
 
 
+
 export const Login = () => {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
@@ -39,8 +40,9 @@ export const Login = () => {
             "email" : email,
             "password" : password, 
         }
-
-        let result = await fetch("http://localhost:8080/auth/login/",
+        
+        // console.log(process.env.REACT_APP_BACKEND_URL);
+        let result = await fetch(`${process.env.REACT_APP_BACKEND_URL}/auth/login/`,
         {
             body : JSON.stringify(userObj),
             method : "POST",
