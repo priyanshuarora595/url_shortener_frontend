@@ -1,7 +1,10 @@
 import React , {useEffect, useState} from 'react'
+// import { useNavigate } from "react-router-dom"
 
-export const Redirect = (props) => {
 
+export const RedirectTo = (props) => {
+
+    // const navigate = useNavigate()
     const [error,setError] = useState();
 
     const get_url = async() =>{
@@ -19,12 +22,13 @@ export const Redirect = (props) => {
               },
         });
         result = await result.json();
+        console.log(result);
 
         if(result.error===true){
-            // window.location.pathname="";
             setError(result.message)
-
-
+            window.location.pathname="";
+            // navigate("/");
+            
         }else{
             
             console.log(result.data.redirection_url);

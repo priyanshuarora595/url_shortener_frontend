@@ -3,7 +3,7 @@ import { AllUrls } from './allUrls';
 // import {Redirect} from './components/Redirect'
 import { AddUrl } from './addUrl';
 import {Header} from './Header';
-import {Footer} from './Footer';
+// import {Footer} from './Footer';
 import { BrowserRouter as Router  } from 'react-router-dom';
 
 export const UserDashboard = () => {
@@ -38,7 +38,7 @@ export const UserDashboard = () => {
         </div>
         </>
         }
-        <Footer />
+        
         
         </Router>
         </>

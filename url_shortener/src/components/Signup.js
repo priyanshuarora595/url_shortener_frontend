@@ -12,6 +12,8 @@ const SignUpForm = () => {
     const [error,setError] = useState("");
 
     useEffect(()=>{
+        document.getElementById("SignupBtn").disabled = false;
+        document.getElementById("SignupBtn").value = "Register";
         if(error){
           setError(error)
         }
@@ -22,7 +24,9 @@ const SignUpForm = () => {
 
     const SignupUser = async (event) =>{
         // event.preventDefault();
-        console.log("singup user hit in react");
+        // console.log("singup user hit in react");
+        document.getElementById("SignupBtn").disabled = true;
+        document.getElementById("SignupBtn").value = "Loading";
 
         const userObj = {
             "fullName": fname+" "+lname,
@@ -122,7 +126,7 @@ const SignUpForm = () => {
             </div>
             
             <div className="form-field">
-                <input type="button" onClick={()=>{SignupUser()}} value="Register" className="register" name="register" />
+                <input type="button" id="SignupBtn" onClick={()=>{SignupUser()}} value="Register" className="register" name="register" />
             </div>
         </form>
     </div>

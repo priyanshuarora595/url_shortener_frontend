@@ -14,6 +14,8 @@ export const Login = () => {
     const [passwordError,setPasswordError] = useState(false);
 
     useEffect(()=>{
+      document.getElementById("LoginBtn").disabled = false;
+      document.getElementById("LoginBtn").innerHTML = "Login";
             if(error){
               setError(error)
             }
@@ -22,6 +24,9 @@ export const Login = () => {
     // const navigate = useNavigate();
 
     const LoginUser = async () =>{
+
+      document.getElementById("LoginBtn").disabled = true;
+      document.getElementById("LoginBtn").innerHTML = "Loading";
 
       if(!email || email === ""){
         setEmailError(true)
@@ -97,8 +102,8 @@ export const Login = () => {
         </div>
         
         <div className="d-grid">
-          <button type="button"  className="btn btn-primary" onClick={()=> {LoginUser()}}>
-            Submit
+          <button type="button" id='LoginBtn' className="btn btn-primary" onClick={()=> {LoginUser()}}>
+            Login
           </button >
         </div>
         <p className="forgot-password text-right">
