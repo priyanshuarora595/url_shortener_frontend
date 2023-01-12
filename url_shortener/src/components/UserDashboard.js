@@ -6,9 +6,9 @@ import {Header} from './Header';
 // import {Footer} from './Footer';
 import { BrowserRouter as Router  } from 'react-router-dom';
 
+
+
 export const UserDashboard = () => {
-
-
     const loadLocalStorage = () =>{
         let userData = localStorage.getItem("userData")
         return userData;
@@ -16,7 +16,7 @@ export const UserDashboard = () => {
 
 
     const user = JSON.parse(loadLocalStorage());
-      console.log(user);
+      // console.log(user);
     if (!user) {
         window.location.pathname="/login"
       }
@@ -34,6 +34,7 @@ export const UserDashboard = () => {
         <div className='container'>
           <h1>{user.username}</h1>
           <AddUrl />
+      
           < AllUrls />
         </div>
         </>

@@ -24,7 +24,7 @@ export const AllUrls = () => {
     const get_user_urls = async () => {
         let userData = localStorage.getItem("userData");
         userData = JSON.parse(userData);
-        console.log(userData._id);
+        // console.log(userData._id);
         var result = await fetch(`${process.env.REACT_APP_BACKEND_URL}/url/userUrl/`,
         {
             method : "POST",
@@ -38,7 +38,7 @@ export const AllUrls = () => {
             })
         });
         result = await result.json();
-        console.log(result.data);
+        // console.log(result.data);
         setdata(result.data);
     }
 
@@ -46,7 +46,7 @@ export const AllUrls = () => {
 
         let  userData = localStorage.getItem("userData");
         userData = JSON.parse(userData);
-        console.log(userData.is_admin);
+        // console.log(userData.is_admin);
         if(userData.is_admin===true)
         {
             get_all_urls();

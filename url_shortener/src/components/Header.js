@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+import UserDelModal from "./Modals/userDeletionModal";
+
 // import { redirect } from "react-router-dom";
 
-export const Header = (props) => {
 
+export const Header = (props) => {
+  const [show,setShow] = useState(false)
+
+  
+  //user deletion modal code
+ 
   // const navigate = useNavigate();
   const[loggedIn,setLoggedIn] = useState(false);
 
@@ -30,10 +38,21 @@ export const Header = (props) => {
   </li></>);
 
   // const logout = (<><li className="nav-item"><Link to="/signup" className="nav-link">Signup</Link> </>);
-  const logout = (<> <li className="nav-item">
-  <Link to="/" className="nav-link" onClick={logoutFunction}>Logout</Link>
-  </li>
-  </>);
+  const logout = (
+  <>
+  <div className="dropdown">
+  <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Options
+  </button>
+  <ul className="dropdown-menu">
+    <li><Link to="/" className="nav-link dropdown-item" onClick={logoutFunction}>Logout</Link></li>
+    <li><Link className="nav-link dropdown-item" onClick={() => {setShow(true);console.log("show")}}>Delete Account</Link>
+      <UserDelModal onClose = {() => setShow(false)} show={show} /></li>
+    
+  </ul>
+</div>
+  </>
+  );
 
 
 useEffect(()=>{
@@ -45,8 +64,9 @@ useEffect(()=>{
   }
   },[loggedIn])
   
-
+  
   return (
+    <>
     <div id="headerDiv">
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
@@ -78,7 +98,7 @@ useEffect(()=>{
               
             </ul>
             
-            <ul className="navbar-nav mx-4">
+            <ul className="navbar-nav mx-4 pe-5">
               { loggedIn ? 
                 logout : signupLogin
               }
@@ -87,5 +107,6 @@ useEffect(()=>{
         </div>
       </nav>
     </div>
+    </>
   );
 };
