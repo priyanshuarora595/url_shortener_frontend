@@ -17,6 +17,7 @@ import ResetPassword from "./components/Reset";
 
 
 import { BrowserRouter as Router , Routes , Route } from 'react-router-dom';
+import ChangePassword from "./components/ChangePassword";
 
 
 
@@ -50,6 +51,8 @@ function App() {
 
   if(String(window.location.pathname)==="/" || String(window.location.pathname)==="")
   {
+
+ 
     if(loggedIn){
       window.location.pathname="/user"
     }
@@ -57,16 +60,9 @@ function App() {
     //   window.location.pathname="/login"
     // )
   }
-  if(String(window.location.pathname)==="/user")
-  {
 
-    return(
-      <>
-      <UserDashboard />
-      </>
-    )
-  }
-  else{
+
+ 
     return(
       <>
     <Router>
@@ -79,6 +75,7 @@ function App() {
         <Route path="/password-reset" element={<Forgot />} />
         <Route path="/password-reset/*" element={<ResetPassword />} />
         <Route path="/user" element={<UserDashboard />} />
+        <Route path="/ChangePassword" element={<ChangePassword />} />
         <Route path = "/*" element={<RedirectTo/>} />
       </Routes>
       
@@ -86,7 +83,7 @@ function App() {
     </>
 );
 }
-}
+
 
 
 

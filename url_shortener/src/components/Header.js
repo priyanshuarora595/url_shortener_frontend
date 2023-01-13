@@ -46,6 +46,7 @@ export const Header = (props) => {
   </button>
   <ul className="dropdown-menu">
     <li><Link to="/" className="nav-link dropdown-item" onClick={logoutFunction}>Logout</Link></li>
+    <li><Link to="/ChangePassword" className="nav-link dropdown-item" >Change Password</Link></li>
     <li><Link className="nav-link dropdown-item" onClick={() => {setShow(true);console.log("show")}}>Delete Account</Link>
       <UserDelModal onClose = {() => setShow(false)} show={show} /></li>
     

@@ -2,9 +2,6 @@ import React from "react";
 import { AllUrls } from './allUrls';
 // import {Redirect} from './components/Redirect'
 import { AddUrl } from './addUrl';
-import {Header} from './Header';
-// import {Footer} from './Footer';
-import { BrowserRouter as Router  } from 'react-router-dom';
 
 
 
@@ -26,9 +23,9 @@ export const UserDashboard = () => {
     return(
         <>
         {/* <h1>hellow</h1> */}
-        <Router>
+        {/* <Router> */}
         
-        <Header />
+        {/* <Header /> */}
         {loadLocalStorage() &&
         <>
         <div className='container'>
@@ -41,7 +38,7 @@ export const UserDashboard = () => {
         }
         
         
-        </Router>
+        {/* </Router> */}
         </>
     )
     
