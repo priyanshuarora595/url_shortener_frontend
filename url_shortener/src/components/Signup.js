@@ -12,6 +12,17 @@ const SignUpForm = () => {
     const [error,setError] = useState("");
 
     useEffect(()=>{
+        const loadLocalStorage = () =>{
+            let userData = localStorage.getItem("userData")
+            return userData;
+          }
+    
+    
+        const user = JSON.parse(loadLocalStorage());
+          // console.log(user);
+        if (user) {
+            window.location.pathname="/user"
+          }
         document.getElementById("SignupBtn").disabled = false;
         document.getElementById("SignupBtn").value = "Register";
         if(error){

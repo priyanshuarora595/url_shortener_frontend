@@ -1,4 +1,5 @@
 import React , {useEffect, useState} from 'react';
+import { Link } from "react-router-dom";
 // import {useNavigate} from 'react-router-dom';
 
 
@@ -14,6 +15,18 @@ export const Login = () => {
     const [passwordError,setPasswordError] = useState(false);
 
     useEffect(()=>{
+
+      const loadLocalStorage = () =>{
+        let userData = localStorage.getItem("userData")
+        return userData;
+      }
+
+
+    const user = JSON.parse(loadLocalStorage());
+      // console.log(user);
+    if (user) {
+        window.location.pathname="/user"
+      }
       document.getElementById("LoginBtn").disabled = false;
       document.getElementById("LoginBtn").innerHTML = "Login";
             if(error){
@@ -106,9 +119,11 @@ export const Login = () => {
             Login
           </button >
         </div>
-        <p className="forgot-password text-right">
-          Forgot password?
-        </p>
+        <Link to="/password-reset">
+          <p className="forgot-password text-right">
+            Forgot password?
+          </p>
+        </Link>
       </form>
     </div>
     )

@@ -12,6 +12,8 @@ import SignUpForm from './components/Signup';
 import {RedirectTo} from './components/Redirect'
 // import { AddUrl } from './components/addUrl';
 import { UserDashboard } from "./components/UserDashboard";
+import Forgot from "./components/password-reset";
+import ResetPassword from "./components/Reset";
 
 
 import { BrowserRouter as Router , Routes , Route } from 'react-router-dom';
@@ -74,6 +76,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/signup" element={<SignUpForm />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/password-reset" element={<Forgot />} />
+        <Route path="/password-reset/*" element={<ResetPassword />} />
         <Route path="/user" element={<UserDashboard />} />
         <Route path = "/*" element={<RedirectTo/>} />
       </Routes>
