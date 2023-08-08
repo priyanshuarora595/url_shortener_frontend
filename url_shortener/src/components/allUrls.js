@@ -92,7 +92,7 @@ export const AllUrls = () => {
                 <tbody>
                 {data.map((item, index) => (
                     <tr key={index}>
-                    <td><a href={ window.location.protocol + '//' + window.location.hostname +':'+ window.location.port + '/' +item.url_string}>{window.location.hostname +':'+ window.location.port}/{item.url_string}</a></td>
+                    <td><a href={ window.location.protocol + '//' + window.location.hostname + '/' +item.url_string}>{window.location.hostname}/{item.url_string}</a></td>
                     <td><a href={item.redirection_url} >{item.redirection_url}</a></td>
                     <td><button type='button' className='btn btn-success' onClick={()=>{deleteUrl({item})}} ><i className="bi bi-trash"></i></button></td>
 
